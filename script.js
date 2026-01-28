@@ -80,3 +80,51 @@
     
 // }, 2000);
 // console.log("second line")
+// const timerId=setInterval(()=>{
+//     console.log("After 3 sec")
+// },1000)
+// console.log(timerId)
+// setTimeout(()=>{
+//     clearInterval(timerId)
+// },10*1000)
+
+// let count=1
+//  const timerid=setInterval(() => {
+//     if (count===10)clearInterval(timerid)
+//     console.log(count)
+// count+=1
+// }, 1000);
+
+
+// console.log("before timeout")
+// setTimeout(() => {
+//     console.log("inside timeout ")
+// }, 0)
+// console.log("after timeout")
+
+
+const name=document.querySelector("#name")
+const btn=document.querySelector(".btn")
+const list=document.querySelector(".list")
+
+btn.addEventListener("click",()=>{
+
+    if(name.value==="")return
+
+    // creating element
+const li=document.createElement("li")
+const dlt=document.createElement("button")
+// providingtext
+dlt.innerText="delete"
+li.innerText=name.value;
+dlt.addEventListener("click",()=>{
+    list.removeChild(li)
+})
+
+// appending the element
+list.appendChild(li)
+li.appendChild(dlt)
+name.value=""
+})
+
+
