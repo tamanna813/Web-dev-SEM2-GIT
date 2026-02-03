@@ -97,34 +97,101 @@
 
 
 // console.log("before timeout")
-// setTimeout(() => {
+// setTimeout(() => {.      // (this is callback function )
 //     console.log("inside timeout ")
 // }, 0)
 // console.log("after timeout")
 
+// function greet(){ //callback function will be the greet one 
+//     console.log("hello students")
+// }
+// function print(sample, num){ //higher order function (jiske andr callback fn pass krre hai )
+//     sample()
+//     console.log("total students are", num)
+// }
+// print(greet, 45)
 
-const name=document.querySelector("#name")
-const btn=document.querySelector(".btn")
-const list=document.querySelector(".list")
 
-btn.addEventListener("click",()=>{
+/////////////callback hell ///////////////////
+// console.log("starting homework..");
 
-    if(name.value==="")return
+// setTimeout(() => {
+//     console.log("homework done!");
+//     console.log("starting dinner..");
 
-    // creating element
-const li=document.createElement("li")
-const dlt=document.createElement("button")
-// providingtext
-dlt.innerText="delete"
-li.innerText=name.value;
-dlt.addEventListener("click",()=>{
-    list.removeChild(li)
+//      setTimeout(() => {
+//         console.log("dinner done");
+//         console.log("getting ready to go out");
+//         setTimeout(() => {
+//             console.log("going to the playground!");
+            
+//         }, 1000); //after dinner 
+        
+//      }, 1500);// dinner time 
+    
+// }, 2000); //homework time
+
+//////////////////// hadling callback hell /////////////////
+//  function finishHomework(callback){
+//     console.log("starting homework....");
+//     setTimeout(() => {
+//         console.log("Homework done!");
+//         callback();
+
+//  }, 2000);
+// }
+
+//  function eatDinner(callback){
+// console.log("eating dinner");
+// setTimeout(() => {
+//     console.log("ate Dinner");
+//     callback();
+// }, 1500);
+//  }
+
+//  function goToPlayground(){
+// console.log("going to playground");
+//  }
+
+//  finishHomework(()=>{
+// eatDinner(()=>{
+//     goToPlayground(()=> {
+
+//     })
+
+//    })
+
+//  })
+
+
+
+
+// const p=new Promise((resolve,reject)=>{ /////pending and rejected error create krta hai ////////
+//     resolve("promise resolved")
+// })
+//////or///////
+//  const p=new Promise((res,rej)=>{ 
+//     res("promise resolved")
+// })
+ 
+const p=new Promise((res, rej)=>{
+let done=false
+setTimeout(() => {
+    if(done){
+        res("work us done!")
+    }
+    else{
+        rej("work is not done")
+    }
+
+}, 5000);
+
 })
-
-// appending the element
-list.appendChild(li)
-li.appendChild(dlt)
-name.value=""
+p.then((msg)=>{
+    console.log(msg)
+}).catch((err)=>{
+    console.log(err)
+}).finally(()=>{
+    console.log("finally block") /////this will always there chaiye then hoga ya catch 
 })
-
-
+console.log(p)
