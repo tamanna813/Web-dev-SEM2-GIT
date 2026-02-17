@@ -1,4 +1,21 @@
-li{
+/* li{
 width: 300px
 background-color blue;
+} */
+
+
+
+.dlt{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    background-color: crimson;
+    color: aliceblue;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 12px;
 }

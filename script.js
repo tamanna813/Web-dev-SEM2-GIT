@@ -174,24 +174,122 @@
 //     res("promise resolved")
 // })
  
-const p=new Promise((res, rej)=>{
-let done=false
-setTimeout(() => {
-    if(done){
-        res("work us done!")
-    }
-    else{
-        rej("work is not done")
-    }
+// const p=new Promise((res, rej)=>{
+// let done=false //or true 
+// setTimeout(() => {
+//     if(done){
+//         res("work us done!")
+//     }
+//     else{
+//         rej("work is not done")
+//     }
 
-}, 5000);
+// }, 5000);
 
-})
-p.then((msg)=>{
-    console.log(msg)
-}).catch((err)=>{
-    console.log(err)
-}).finally(()=>{
-    console.log("finally block") /////this will always there chaiye then hoga ya catch 
-})
-console.log(p)
+// })
+// p.then((msg)=>{
+//     console.log(msg)
+// }).catch((err)=>{
+//     console.log(err)
+// }).finally(()=>{
+//     console.log("finally block") /////this will always there chaiye then hoga ya catch 
+// })
+// console.log(p)
+
+
+////event loop very very imp
+
+// console.log("first line")
+// setTimeout(() => {
+//     console.log("second line")
+    
+// }, 0);
+// console.log("last line")
+////////////////LEC15/////////////////////
+function orderFood(){
+    return new Promise((res,rej)=>{
+        setTimeout(() => {
+            console.log("Food ordered")
+            res("Food has been ordered")
+    
+        }, 2000);
+    })
+}
+function orderFood(){
+    return new Promise((res,rej)=>{
+        setTimeout(() => {
+            console.log("Food prepared")
+            res()
+    
+        }, 2000);
+    })
+}
+
+
+function orderFood(){
+    return new Promise((res,rej)=>{
+        setTimeout(() => {
+            console.log("Food Delivered")
+            res()
+        }, 2000);
+    })
+}
+////only can use await when the function is async 
+// async function order(){
+//  const data=await orderFood()////////ye string return bhi krra hai ///////////
+//  console.log(data)
+// await prepareFood()
+// await deliverFood()}
+// FoodDeliver()
+
+// orderFood().then((data)=>{
+//     return prepareFood()
+// }).then((data=>{
+//     return deliverFood()
+// })).then((data)=>{
+
+// }).catch((err)=>{
+//     console.log("somthing went wrong")
+// })
+
+
+//////////////lec16.
+
+// console.log("First line")
+// try{/////isme jo error dega
+//     let sample=234
+//     console.log(sample)
+//     console.log("line after sample")
+
+// }catch(e){//////isme jo error dega usko handle krne k liy 
+//     console.log(e)
+
+// }
+// console.log("Last line")
+////try catch ka use is used in backend s jb data managte hai 
+
+
+
+// console.log("First line")
+// try{
+//     let age=16
+//     if(age<18){
+//         throw new Error("you not eligible to vote ")
+//     }
+// }catch(e){
+//     console.warn(e)
+//     // console.error(e)
+// }
+// console.log("last line")
+
+
+async function getData(){
+    const response=await fetch("https://dummyjson.com/products.")
+    const data=await response.json()
+    console.log(data.products[0].title)
+    data.product.array.forEach((product)=>{
+        console.log(product.title)
+
+    })
+        
+}fetchdata()

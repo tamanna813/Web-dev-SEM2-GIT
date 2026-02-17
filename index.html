@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!-- <p class="para"> This is a pragraph</p>
@@ -25,10 +25,46 @@
             <button>Submit</button>
         </div>
     </div> -->
-
+<!-- 
     <input type="text" id="name" placeholder="enter the name">
     <button class="btn"> add student </button>
-    <div class="list"></div>
+    <div class="list"></div> -->
+
+
+<div class="conatiner">
+<div class="eventForm">
+<form class="form">
+<lable for="eventTitle.">Event Title</lable>
+<input type="text" id="eventTitle">
+<br>
+<label for="eventDate"> EventDate</label>
+<input type="date" id="eventDate">
+<br>
+<lable for="category">Category</lable>
+<select id="category">
+<option value="Conference"> Conference</option>
+<option value="Workshop">Workshop</option>
+<option value="Webinar">Webinar</option>
+<option value="Social">Social</option>
+
+</select>
+<br>
+<lable for="description">Description</lable>
+<textarea id="description"></textarea>
+<br>
+<input type="submit" value="Add Event">
+</form>
+</div>
+
+<div class="events">
+    <button>Clear All Events</button>
+    <button> Add Sample Events</button>
+    <div class="cards"></div>
+
+</div>
+<div class="domContainer"></div>
+
+</div>
     <script src="./script.js"></script>
 </body>
 </html>
